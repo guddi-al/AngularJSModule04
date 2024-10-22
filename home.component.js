@@ -3,7 +3,7 @@
 
     angular.module('MenuApp')
         .component('home', {
-            templateUrl: 'components/home/home.template.html'
+            templateUrl: 'home.template.html'
         });
 
 })();
