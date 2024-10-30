@@ -1,12 +1,16 @@
-﻿(function () {
-    'use strict';
+(function () {
+  'use strict';
+  angular.module('MenuApp')
+    .controller('ItemsController', ItemsController);
 
-    angular.module('MenuApp')
-        .controller('ItemsController', ItemsController);
+  ItemsController.$inject = ['$http', '$stateParams'];
+  function ItemsController($http, $stateParams) {
+    var itemsCtrl = this;
+    itemsCtrl.items = [];
 
-    ItemsController.$inject = ['items'];
-    function ItemsController(items) {
-        var itemsCtrl = this;
-        itemsCtrl.items = items.menu_items;
-    }
+    // Fetch items based on categoryId from a simple static JSON file or API
+    $http.get('items-' + $stateParams.categoryId + '.json').then(function (response) {
+      itemsCtrl.items = response.data;
+    });
+  }
 })();
