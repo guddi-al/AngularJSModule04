@@ -1,19 +1,26 @@
-﻿<!doctype html>
+<!DOCTYPE html>
 <html lang="en" ng-app="MenuApp">
 <head>
-    <title>Restaurant Menu</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+  <meta charset="UTF-8">
+  <title>Restaurant Menu</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.28/angular-ui-router.min.js"></script>
+  <script src="app.js"></script>
+  <script src="categories.component.js"></script>
+  <script src="home.component.js"></script>
+  <script src="items.component.js"></script>
+  <script src="menuservice.js"></script>
 </head>
 <body>
-    <div ui-view></div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.29/angular-ui-router.min.js"></script>
-    <script src="app.js"></script>
-    <script src="home.component.js"></script>
-    <script src="categories.component.js"></script>
-    <script src="items.component.js"></script>
-    <script src="menu.service.js"></script>
+  <nav>
+    <ul>
+      <li><a ui-sref="home">Home</a></li>
+      <li><a ui-sref="categories">Categories</a></li>
+     
+      <li><a ui-sref="items({ categoryId: 'desserts' })">Sample Items</a></li>
+    </ul>
+  </nav>
+  <div ui-view></div>
 </body>
 </html>
