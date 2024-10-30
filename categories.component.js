@@ -3,14 +3,13 @@
   angular.module('MenuApp')
     .controller('CategoriesController', CategoriesController);
 
-  CategoriesController.$inject = ['$http'];
-  function CategoriesController($http) {
+  CategoriesController.$inject = ['MenuService'];
+  function CategoriesController(MenuService) {
     var categoriesCtrl = this;
     categoriesCtrl.items = [];
 
-    // Fetch categories from a simple static JSON file or API
-    $http.get('categories.json').then(function (response) {
-      categoriesCtrl.items = response.data;
+    MenuService.getAllCategories().then(function (response) {
+      categoriesCtrl.items = response;
     });
   }
 })();
